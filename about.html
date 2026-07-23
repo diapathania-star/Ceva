@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO & Social Meta Tags -->
+    <meta name="description" content="The story and philosophy behind Ceva. Meet Deepti Malhotra and the lived experience that shapes her approach to leadership coaching.">
+    <link rel="canonical" href="https://ceva.coach/about.html">
+    <link rel="icon" type="image/png" href="Logo Favicon.png">
+    <link rel="apple-touch-icon" href="Logo Favicon.png">
+    <meta name="theme-color" content="#FCFBF9">
+
+    <title>About Ceva</title>
+
+    <!-- Performance: Preload the LCP Hero Image -->
+    <link rel="preload" href="deepti-warm.png" as="image">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Scroll & Animation Libraries -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        /* ── ROOT VARIABLES MATCHING HOMEPAGE ── */
+        :root {
+            --bg: #FCFBF9;
+            --slate: #3A3A38;
+            --text-p: #5F5A53;
+            --orange: #C77B30;
+            --orange-hover: #b06b29;
+            --muted: #8A8278;
+            --nav: #6B6760;
+            --sans: 'Inter', sans-serif;
+            --dark-bg: #121110;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ── ACCESSIBILITY: Respect user motion preferences ── */
+        @media (prefers-reduced-motion: reduce) {
+            *, ::before, ::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .fade-in {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+
+        /* ── ALIGNED GLOBAL SCROLLBAR & BODY STYLES ── */
+        html { 
+            scrollbar-gutter: stable; 
+            -ms-overflow-style: auto; 
+            scroll-behavior: auto;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: 'EB Garamond', Georgia, serif;
+            background: var(--bg);
+            color: var(--slate);
+            line-height: 1.4;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        body.modal-open { overflow: hidden; }
+
+        a:focus-visible, button:focus-visible, input:focus-visible { 
+            outline: 2px solid var(--orange); 
+            outline-offset: 4px; 
+            border-radius: 2px; 
+        }
+
+        .gentle-container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── HEADER ── */
+        .site-header { 
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100; 
+            background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); 
+            border-bottom: 1px solid rgba(58, 58, 56, 0.04); transition: background 0.6s ease, border-color 0.6s ease; 
+        }
+        .site-header-inner { display: flex; justify-content: space-between; align-items: center; max-width: var(--container-width); margin: 0 auto; padding: 0.25rem 2.5rem; }
+        .site-logo { display: flex; align-items: center; text-decoration: none; transition: filter 0.6s ease; }
+        .site-logo img { height: 60px; width: auto; display: block; object-fit: contain; flex-shrink: 0; } 
+        .site-nav { display: flex; gap: 2.5rem; }
+        .site-nav a { font-family: var(--sans); color: var(--nav); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.05em; transition: color 0.4s ease; text-transform: uppercase; font-weight: 500;}
+        .site-nav a:hover, .site-nav a.active { color: var(--orange); }
+
+        .site-header.dark-header { background: rgba(18, 17, 16, 0.95); border-bottom-color: rgba(255, 255, 255, 0.05); }
+        .site-header.dark-header .site-logo img { filter: brightness(0) invert(1); }
+        .site-header.dark-header .site-nav a { color: #D5D1CB; }
+        .site-header.dark-header .site-nav a:hover, .site-header.dark-header .site-nav a.active { color: var(--orange); }
+        .site-header.dark-header .nav-toggle span { background: #D5D1CB; }
+
+        /* ── HERO SECTION ── */
+        .hero {
+            min-height: 100dvh; width: 100%; display: flex; align-items: center; justify-content: center; padding: 0; position: relative; overflow: hidden;
+            background: var(--bg);
+        }
+        
+        .hero-content { width: 100%; max-width: 580px; position: relative; z-index: 2; display: flex; flex-direction: column; margin-top: max(5rem, 8vh); }
+        .hero-eyebrow { display: inline-flex; align-items: center; font-family: var(--sans); font-size: 0.75rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--orange); margin-bottom: 1.25rem; }
+        .hero-headline { font-size: clamp(2.4rem, 4vw, 3.5rem); line-height: 1.1; font-weight: 400; color: var(--slate); margin: 0; }
+        .hero-rule { width: 50px; height: 1.5px; background: var(--orange); margin: 1.5rem 0; }
+        .hero-subtext { font-size: clamp(1.1rem, 1.5vw, 1.25rem); color: var(--muted); max-width: 28em; margin: 0; line-height: 1.5; }
+        .hero-subtext p { margin: 0 0 0.5rem 0; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--slate); }
+        
+        .hero-photo-wrap { position: absolute; right: 0; top: 0; width: 44vw; height: 120%; overflow: hidden; z-index: 1; }
+        .hero-photo { width: 100%; height: 100%; object-fit: cover; transform-origin: center 30%; }
+
+        /* ── STORY SECTION ── */
+        .story-section {
+            width: 100%;
+            background-color: var(--bg);
+            padding: 6rem 0 8rem 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .story-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 4rem;
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+        }
+
+        .story-block { 
+            max-width: 680px; 
+            width: 100%;
+        }
+
+        .section-item { 
+            margin-bottom: 3rem; 
+        }
+        
+        .section-header {
+            font-family: 'EB Garamond', Georgia, serif; 
+            font-size: 3rem; 
+            margin-bottom: 3rem; 
+            color: var(--slate); 
+            font-weight: 400; 
+            line-height: 1.2;
+            text-align: center; 
+        }
+        
+        .section-text {
+            font-size: 1.25rem; 
+            color: var(--slate); 
+            line-height: 1.45;
+            font-weight: 400; 
+            margin-bottom: 2rem; 
+            letter-spacing: 0.01em;
+        }
+        
+        .section-text:last-child { 
+            margin-bottom: 0; 
+        }
+        
+        .story-divider { 
+            width: 50px; 
+            height: 1.5px; 
+            background-color: var(--orange); 
+            margin: 4.5rem auto; 
+        }
+
+        /* ── FULL WIDTH INVITATION STRIP ── */
+        .invitation-strip {
+            width: 100%; 
+            background-color: var(--bg); 
+            padding: 5rem 0 6rem 0; 
+        }
+        .strip-content {
+            max-width: 1300px;
+            margin: 0 auto; 
+            padding: 0 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1px 1.1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .strip-left { 
+            padding-right: 1.5rem; 
+            max-width: 480px; 
+            width: 100%;
+            margin: 0 auto; 
+        } 
+        .strip-right { 
+            padding-left: 1.5rem; 
+            max-width: 550px; 
+            width: 100%;
+        }
+        .strip-divider { background-color: rgba(58, 58, 56, 0.12); height: 100%; width: 1px; margin: 0 auto; }
+        
+        .strip-title {
+            font-family: 'EB Garamond', Georgia, serif; font-size: clamp(2.2rem, 3vw, 2.8rem);
+            font-weight: 400; line-height: 1.2; margin-bottom: 2.5rem; color: var(--slate);
+        }
+        .strip-para { font-family: 'EB Garamond', Georgia, serif; font-size: 1.15rem; color: var(--muted); line-height: 1.45; margin-bottom: 1.5rem; }
+        .strip-para:last-child { margin-bottom: 0; }
+        
+        .strip-welcome {
+            font-family: 'EB Garamond', Georgia, serif; 
+            font-size: 1.8rem; 
+            font-weight: 500;
+            color: var(--orange); 
+            margin: 1.5rem 0 2rem 0; 
+        }
+        
+        .strip-btn {
+            font-family: var(--sans); font-size: 0.8rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase;
+            color: var(--slate); text-decoration: none; border-bottom: 1px solid var(--slate);
+            padding-bottom: 0.5rem; transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease; display: inline-block;
+        }
+        .strip-btn:hover { color: var(--orange); border-bottom-color: var(--orange); transform: translateX(4px); }
+
+        /* ── HOW THE WORK MOVES (ARJUNA SECTION) ── */
+        .work-moves {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #f9f4ef;
+            background-image: url('Mahabharat.png');
+            background-size: cover;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+            padding: 8.5rem 0;
+            overflow: hidden;
+        }
+        .work-moves-inner {
+            position: relative;
+            z-index: 2;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+        .work-moves-quiet {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 2rem;
+        }
+        .work-moves-eyebrow {
+            display: block;
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+            color: #8C7C63;
+            margin-bottom: 2.75rem;
+        }
+        .work-moves-line {
+            font-family: 'EB Garamond', Georgia, serif;
+            font-size: clamp(1.55rem, 3vw, 2.25rem);
+            font-weight: 400;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+            color: var(--slate);
+            margin: 0 auto;
+            max-width: 18em;
+        }
+        .work-moves-coda {
+            font-family: 'EB Garamond', Georgia, serif;
+            margin-top: 1.85rem;
+            font-size: 1.15rem;
+            line-height: 1.45;
+            letter-spacing: 0.02em;
+            color: var(--muted);
+        }
+
+        /* ── FOOTER ── */
+        .site-footer { background: var(--dark-bg); padding: 3rem 5rem 2rem 5rem; border-top: 1px solid rgba(255, 255, 255, 0.05); margin-top: auto; }
+        .footer-inner { max-width: var(--container-width); margin: 0 auto; }
+        .footer-top { display: flex; justify-content: space-between; margin-bottom: 2rem; }
+        .footer-brand h3 { font-size: 2.2rem; font-style: normal; color: #fff; margin-bottom: 0.5rem; font-weight: 400; }
+        .footer-brand p { font-family: var(--sans); color: #D5D1CB; font-size: 0.9rem; margin: 0; }
+        .footer-right { text-align: right; }
+        .footer-email { font-family: var(--sans); font-size: 1.1rem; color: var(--orange); text-decoration: none; display: block; margin-bottom: 0.8rem; }
+        .footer-nav { display: flex; gap: 2rem; justify-content: flex-end; }
+        .footer-nav a, .footer-nav button { font-family: var(--sans); color: #fff; text-decoration: none; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.05em; transition: color 0.3s; font-weight: 500; background: none; border: none; padding: 0; cursor: pointer; }
+        .footer-nav a:hover, .footer-nav button:hover { color: var(--orange); }
+        .footer-divider { height: 1px; background: rgba(255, 255, 255, 0.1); margin-bottom: 1.5rem; }
+        .footer-bottom { display: flex; justify-content: space-between; font-family: var(--sans); font-size: 0.8rem; color: #D5D1CB; }
+        .footer-legal a { color: #D5D1CB; text-decoration: none; margin-left: 1rem; transition: color 0.3s; }
+        .footer-legal a:hover { color: #fff; }
+
+        /* ── FLOATING ACTION MENU ── */
+        .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; pointer-events: none; }
+        .fab-menu { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.8rem; opacity: 0; visibility: hidden; transform: translateY(15px) scale(0.95); transition: all 0.3s ease; transform-origin: bottom right; pointer-events: auto; }
+        .fab-menu.active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+        .fab-item { display: flex; align-items: center; gap: 0.8rem; background: #fff; padding: 0.8rem 1.2rem; border-radius: 30px; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--slate); text-decoration: none; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; white-space: nowrap; pointer-events: auto; }
+        .fab-item:hover { color: var(--orange); transform: translateX(-4px); border-color: rgba(199, 123, 48, 0.3); }
+        .fab-item svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+        
+        .fab-trigger { width: 55px; height: 55px; border-radius: 50%; background: #128C7E; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(18, 140, 126, 0.35); transition: transform 0.3s ease, background 0.3s ease; pointer-events: auto; }
+        .fab-trigger:hover { transform: scale(1.05); background: #0D665B; }
+        .fab-trigger svg { width: 28px; height: 28px; fill: currentColor; transition: transform 0.3s ease; stroke: none; }
+        .fab-trigger.active svg { transform: rotate(15deg) scale(0.9); }
+
+        /* ── MODAL STYLING ── */
+        .contact-modal { position: fixed; inset: 0; z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: all 0.5s ease; }
+        .contact-modal.show { opacity: 1; visibility: visible; }
+        .modal-overlay { position: absolute; inset: 0; background: rgba(18, 17, 16, 0.9); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+        
+        /* THIS IS THE SLIDE DOWN ANIMATION: Starts off-screen top (-100vh) */
+        .modal-content { position: relative; width: 90%; max-width: 1000px; height: 90vh; background: #fff; border-radius: 12px; overflow: hidden; display: flex; transform: translateY(-100vh); transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); box-shadow: 0 25px 80px rgba(0,0,0,0.6); }
+        
+        /* Slides into place at translateY(0) */
+        .contact-modal.show .modal-content { transform: translateY(0); }
+        
+        .modal-close { position: absolute; top: 1.2rem; right: 1.2rem; width: 44px; height: 44px; border-radius: 50%; background: var(--bg); border: 1px solid rgba(0,0,0,0.1); cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: all 0.3s ease; color: var(--slate); }
+        .modal-close:hover { transform: rotate(90deg); color: var(--orange); border-color: var(--orange); }
+        
+        .modal-grid { display: grid; grid-template-columns: 1fr 1.8fr; width: 100%; height: 100%; }
+        
+        .modal-trust-panel { background: var(--slate); padding: 4rem 3.5rem; display: flex; flex-direction: column; justify-content: center; }
+        .trust-header h3 { font-size: 2.5rem; margin-bottom: 1rem; line-height: 1.15; font-weight: 400; color: #fff;}
+        .trust-header p { font-family: var(--sans); font-size: 0.95rem; color: rgba(255, 255, 255, 0.7); margin: 0; line-height: 1.6; }
+        .trust-details { margin: 3rem 0; display: flex; flex-direction: column; gap: 2rem; }
+        .trust-label { font-family: var(--sans); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--orange); font-weight: 600; display: block; margin-bottom: 0.5rem; }
+        .trust-value { font-size: 1.15rem; color: #fff; }
+        .trust-value a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.3); transition: all 0.3s ease; padding-bottom: 2px;}
+        .trust-value a:hover { color: var(--orange); border-color: var(--orange); }
+        .trust-footer { font-family: var(--sans); font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: auto; }
+        
+        .modal-body { 
+    position: relative; 
+    height: 100%; 
+    width: 100%; 
+    background: #fff; 
+    overflow-y: auto; 
+    -webkit-overflow-scrolling: touch; 
+    overscroll-behavior: contain; /* STOPS SCROLL FROM BLEEDING TO BACKGROUND */
+}
+
+        /* Animation Classes */
+        .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1.2s ease, transform 1.2s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        /* ── RESPONSIVE DESIGN ── */
+        .nav-toggle { display: none; }
+        
+        @media (max-width: 960px) {
+            .hero { height: auto !important; min-height: 100dvh; padding: 6rem 0 !important; padding-top: 8rem !important; overflow: hidden; position: relative; width: 100%; }
+            
+            /* Full-bleed mobile photo background contained within layout boundaries */
+            .hero-photo-wrap { display: block !important; position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+            .hero-photo { width: 100%; height: 100%; object-fit: cover; }
+            
+            /* Overlay to ensure text readability */
+            .hero::before { content: ''; position: absolute; inset: 0; background: rgba(252, 251, 249, 0.85); z-index: 1; }
+
+            .story-section { padding: 4rem 0; width: 100%; }
+            .story-container { padding: 0 2rem; width: 100%; }
+            
+            .work-moves { padding: 5.5rem 0; width: 100%; }
+
+            .invitation-strip { padding: 5rem 0; width: 100%; }
+            .strip-content { grid-template-columns: 1fr; padding: 0 2rem; gap: 3rem; width: 100%; }
+            .strip-divider { width: 100%; height: 1px; }
+            .strip-left, .strip-right { padding: 0; max-width: 100%; margin: 0; }
+            
+            .site-footer { padding: 2rem; width: 100%; }
+            .footer-top { flex-direction: column; gap: 1.5rem; margin-bottom: 1.5rem; }
+            .footer-right { text-align: left; }
+            .footer-nav { justify-content: flex-start; flex-wrap: wrap; gap: 1.2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: left; }
+            .footer-legal a { margin-left: 0; margin-right: 1rem; }
+            
+            /* Modal Mobile Updates */
+            .modal-content { 
+                height: 90vh; 
+                width: 95%; 
+                flex-direction: column; 
+                overflow: hidden; 
+            }
+            .modal-grid { 
+                display: flex; 
+                flex-direction: column; 
+                height: 100%; 
+            }
+            .modal-trust-panel { 
+                padding: 1.5rem; 
+                flex-shrink: 0;  
+                border-right: none;
+            }
+            .trust-header h3 {
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
+            }
+            .trust-details {
+                margin: 1rem 0;
+                gap: 1rem;
+                flex-direction: row; 
+                flex-wrap: wrap;
+            }
+            .modal-body { 
+                flex: 1; 
+                height: auto; 
+                overflow-y: auto; 
+                -webkit-overflow-scrolling: touch; 
+            }
+
+            .site-header-inner { padding: 1rem 2rem; }
+            .nav-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 48px; height: 48px; border: none; background: transparent; cursor: pointer; z-index: 120; }
+            .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--slate); transition: all 0.3s ease; }
+            .site-header.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+            .site-header.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+            .site-header.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+            
+            .site-nav { position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid rgba(58, 58, 56, 0.08); max-height: 0; overflow: hidden; transition: max-height 0.4s ease; padding: 0; gap: 0; }
+            .site-header.nav-open .site-nav { max-height: 400px; }
+            .site-nav a { padding: 1.2rem 2rem; border-top: 1px solid rgba(0,0,0,0.05); width: 100%; display: block; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="index.html" class="site-logo">
+                <img src="Logo Favicon.png" alt="Ceva Logo" onerror="this.style.display='none'">
+            </a>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="site-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a> 
+                <a href="services.html">Services</a>
+                <a href="journal.html">Thoughts on leadership</a>
+                <a href="stories.html">Client Stories</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="gentle-container">
+            <div class="hero-content fade-in" style="transition-delay: 0.1s;">
+                <div class="hero-eyebrow">About Me</div>
+                <h1 class="hero-headline">A practice built from service, courage, and inner work.</h1>
+                <div class="hero-rule"></div>
+                <div class="hero-subtext">
+                    <p>DEEPTI MALHOTRA</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-photo-wrap fade-in" style="transition-delay: 0.3s;">
+            <a src="deepti-warm.png" alt="Deepti Malhotra" class="hero-photo" onerror="this.style.display='none'">
+        </div>
+    </section>
+
+    <section class="story-section">
+        <div class="story-container">
+            <div class="story-block">
+                <div class="section-item fade-in">
+                    <p class="section-text" style="font-size: 1.45rem; text-align: center; margin-bottom: 4rem; color: var(--orange); font-style: italic;">
+                        "I work with people who feel the quiet pull toward something more meaningful - in their work, their impact, and their life."
+                    </p>
+                </div>
+
+                <div class="section-item fade-in">
+                    <div class="hero-eyebrow" style="text-align: center; display: block; margin-bottom: 1rem;"></div>
+                    <h2 class="section-header">The Seeker</h2>
+                    <p class="section-text">
+                        I was a young child, standing alone on the balcony of my home while my parents were at work, when I first asked myself this question. I could see that there had to be more to life than what I saw around me.
+                    </p>
+                    <p class="section-text">In grade eight, I came across Raja Ram Mohan Roy in my history textbook. For the first time, I felt a surge of inspiration - here was someone who saw what was broken and decided to do something about it. I wanted to be like that. There were a thousand problems in my own home and society. Maybe that was the point of my life.</p>
+                    <p class="section-text">Instead, I made the practical choice. Studied engineering, got a corporate job with a fancy title and a good paycheque, and built a life in London.</p>
+                    <p class="section-text">It didn't take long for the question to return. Many sleepless nights later, I quit and came back to India. I needed to find an answer.</p>
+                </div>
+
+                <div class="story-divider fade-in"></div>
+
+                <div class="section-item fade-in">
+                    <div class="hero-eyebrow" style="text-align: center; display: block; margin-bottom: 1rem;"></div>
+                    <h2 class="section-header">The Breaking</h2>
+                    <p class="section-text">A year later, I found it. I discovered my gift - and with it, the purpose of my life.</p>
+                    <p class="section-text">I chose to walk toward it even without a map. It scared me. I felt lost for a long time. But I also felt more alive than I ever had before, slowly uncovering who I actually was rather than who I had spent years performing.</p>
+                    <p class="section-text">Then came the hardest stretch. A mental breakdown. Deep loneliness. Most of my business income, gone.</p>
+                    
+                    <p class="section-text" style="padding: 1.5rem; background-color: rgba(199, 123, 48, 0.04); border-left: 2px solid var(--orange); margin-top: 2.5rem; font-size: 1.15rem;">I sat with a question I had never had to face before: who was I beyond the roles I played and the purpose I was chasing?<br><br>Facing that question - really facing it, not just moving past it - changed everything. It prepared me to coach from a place I couldn't have reached any other way.</p>
+                    
+                    <p class="section-text">It was in the middle of rebuilding that Ceva came to life. Ceva comes from 'Sewa' - service performed with creativity and joy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="work-moves">
+        <div class="work-moves-inner">
+            <div class="work-moves-quiet fade-in">
+                <span class="work-moves-eyebrow"></span>
+                <p class="work-moves-line">Arjuna realised his potential when he found courage and did the work necessary to walk on the path of a warrior.</p>
+                <p class="work-moves-coda">He remembered who he was and stepped up to it.<br>Making the right choice and staying on the path - that is the work we do</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="invitation-strip fade-in">
+        <div class="strip-content">
+            <div class="strip-left">
+                <h2 class="strip-title">Is This You?</h2>
+                <p class="strip-para" style="margin-bottom: 1.2rem;">Are you someone who feels restless because of a dream that keeps you up at night?</p>
+                <p class="strip-para" style="margin-bottom: 1.2rem;">Someone who feels passionately about creating a positive impact and wants to work on it more intentionally?</p>
+                <p class="strip-para" style="margin-bottom: 1.2rem;">Someone feeling weighed down by the battles you're fighting at work?</p>
+                <p class="strip-para">Or someone feeling lonely as you work towards realising your vision?</p>
+            </div>
+            
+            <div class="strip-divider"></div>
+            
+            <div class="strip-right">
+                <p class="strip-para">If you're ready to face your fears and limitations, step out of your comfort zone, and have faith in yourself, you're exactly who Ceva is for.</p>
+                <div class="strip-welcome">Welcome.</div>
+                <a href="services.html" class="strip-btn">Find the right offering for you &rarr;</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="contact">
+        <footer class="site-footer">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <h3>Ceva</h3>
+                        <p>Serving those who serve India.</p>
+                    </div>
+                    <div class="footer-right">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=team@leadwithceva.com" class="footer-email" target="_blank" rel="noopener noreferrer">team@leadwithceva.com</a>
+                        <div class="footer-nav">
+                            <a href="about.html">About</a>
+                            <a href="services.html">Services</a>
+                            <button type="button" class="open-modal-btn">Contact</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-bottom">
+                    <div>Ceva Leadership Coaching &copy; 2026 - Deepti. All rights reserved</div>
+                    <div class="footer-legal">
+                        <a href="privacy-policy.html">Privacy Policy</a> | 
+                        <a href="terms-and-conditions.html">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- FAB -->
+    <div class="fab-container">
+        <div class="fab-menu" id="fab-menu">
+            <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="fab-item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                <span>Ask a question</span>
+            </a>
+            <button class="fab-item open-modal-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <span>Schedule call</span>
+            </button>
+        </div>
+        <button class="fab-trigger" id="fab-trigger" aria-label="Contact options">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- MODAL -->
+    <div class="contact-modal" id="contact-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close" aria-label="Close modal">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-grid">
+                <div class="modal-trust-panel">
+                    <div class="trust-header">
+                        <h3 id="modal-title">Let's map out <br>your path.</h3>
+                        <p>Choose a time that suits your schedule on the right.</p>
+                    </div>
+                    <div class="trust-details">
+                        <div>
+                            <span class="trust-label">Direct Inquiries</span>
+                            <span class="trust-value">
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=team@leadwithceva.com" target="_blank" rel="noopener noreferrer">team@leadwithceva.com</a><br>
+                                <a href="tel:+919000000000" style="margin-top: 0.8rem; display: inline-block;">9990304343</a>
+                            </span>
+                        </div>
+                        <div>
+                            <span class="trust-label">Presence & Timezone</span>
+                            <span class="trust-value">Based in Mumbai, India <br>(IST — Serving globally)</span>
+                        </div>
+                    </div>
+                    <div class="trust-footer">Ceva Leadership Coaching &copy; 2026</div>
+                </div>
+                
+                <div class="modal-body">
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/deeptimalhotra?hide_event_type_details=1&hide_gdpr_banner=1&primary_color=c77b30&text_color=3A3A38" style="width:100%; height:100%; min-height:750px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        const isDesktop = window.innerWidth >= 960;
+        let lenis;
+        
+        try {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                smooth: isDesktop, 
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            gsap.registerPlugin(ScrollTrigger);
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time)=>{ lenis.raf(time * 1000) });
+            gsap.ticker.lagSmoothing(0, 0);
+            
+            window.addEventListener('resize', () => {
+                ScrollTrigger.refresh();
+            });
+            
+        } catch(e) { console.warn("Lenis/GSAP Init Error", e); }
+
+        function initAnimations() {
+            try {
+                // Hero background scroll
+                gsap.to(".hero-photo", {
+                    yPercent: -15, 
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#hero",
+                        start: "top top",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+
+                // Elements fade in
+                const elements = document.querySelectorAll('.fade-in');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px"
+                });
+                
+                elements.forEach(el => observer.observe(el));
+
+                // Dark theme header toggle
+                ScrollTrigger.create({
+                    trigger: "#contact",
+                    start: "top 10%",
+                    end: "bottom 0%",
+                    toggleClass: { targets: ".site-header", className: "dark-header" }
+                });
+            } catch(e) { console.warn(e); }
+        }
+
+        function initSmoothNav() {
+            document.querySelectorAll('.scroll-link').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        if(isDesktop && lenis) lenis.scrollTo(target);
+                        else target.scrollIntoView({ behavior: 'smooth' });
+                        
+                        document.querySelector('.site-header').classList.remove('nav-open');
+                        document.querySelector('.nav-toggle').setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+        }
+
+        function initContactFeatures() {
+            const fabTrigger = document.getElementById('fab-trigger');
+            const fabMenu = document.getElementById('fab-menu');
+            const modal = document.getElementById('contact-modal');
+            const overlay = document.getElementById('modal-overlay');
+            const closeBtn = document.getElementById('modal-close');
+            const openBtns = document.querySelectorAll('.open-modal-btn');
+
+            if (fabTrigger && fabMenu) {
+                fabTrigger.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                    fabTrigger.classList.toggle('active');
+                    fabMenu.classList.toggle('active');
+                });
+                document.addEventListener('click', (e) => {
+                    if (!e.target.closest('.fab-container')) {
+                        fabTrigger.classList.remove('active');
+                        fabMenu.classList.remove('active');
+                    }
+                });
+            }
+
+            if (modal && overlay && closeBtn) {
+                const openModal = (e) => {
+                    e.preventDefault(); e.stopPropagation();
+                    modal.classList.add('show');
+                    document.body.classList.add('modal-open'); 
+                    if (fabMenu) { fabMenu.classList.remove('active'); fabTrigger.classList.remove('active'); }
+                    if (lenis) lenis.stop();
+                };
+
+                const closeModal = () => {
+                    modal.classList.remove('show');
+                    document.body.classList.remove('modal-open');
+                    if (lenis) lenis.start(); 
+                };
+
+                openBtns.forEach(btn => btn.addEventListener('click', openModal));
+                closeBtn.addEventListener('click', closeModal);
+                overlay.addEventListener('click', closeModal);
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && modal.classList.contains('show')) {
+                        closeModal();
+                    }
+                });
+            }
+        }
+
+        document.querySelector('.nav-toggle')?.addEventListener('click', function() {
+            const header = document.querySelector('.site-header');
+            const open = header.classList.toggle('nav-open');
+            this.setAttribute('aria-expanded', open);
+        });
+
+        window.onload = () => {
+            initSmoothNav();
+            initAnimations();
+            initContactFeatures();
+        };
+    </script>
+</body>
+</html>
