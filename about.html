@@ -512,17 +512,17 @@
         .footer-legal a { color: #D5D1CB; text-decoration: none; margin-left: 1rem; transition: color 0.3s; }
         .footer-legal a:hover { color: #fff; }
 
-        /* ── FLOATING ACTION MENU ── */
-        .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; pointer-events: none; }
-        .fab-menu { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.8rem; opacity: 0; visibility: hidden; transform: translateY(15px) scale(0.95); transition: all 0.3s ease; transform-origin: bottom right; pointer-events: auto; }
+        /* ── FLOATING ACTION MENU (Synced with Services) ── */
+        .fab-container { position: fixed; bottom: 2rem; right: 2rem; z-index: 1000; display: flex; flex-direction: column; align-items: flex-end; }
+        .fab-menu { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 0.8rem; opacity: 0; visibility: hidden; transform: translateY(15px) scale(0.95); transition: all 0.3s ease; transform-origin: bottom right; }
         .fab-menu.active { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-        .fab-item { display: flex; align-items: center; gap: 0.8rem; background: #fff; padding: 0.8rem 1.2rem; border-radius: 30px; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--slate); text-decoration: none; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; white-space: nowrap; pointer-events: auto; }
+        .fab-item { display: flex; align-items: center; gap: 0.8rem; background: #fff; padding: 0.8rem 1.2rem; border-radius: 30px; font-family: var(--sans); font-size: 0.85rem; font-weight: 500; color: var(--slate); text-decoration: none; border: 1px solid rgba(0,0,0,0.05); box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; cursor: pointer; white-space: nowrap; }
         .fab-item:hover { color: var(--orange); transform: translateX(-4px); border-color: rgba(199, 123, 48, 0.3); }
         .fab-item svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
         
-        .fab-trigger { width: 55px; height: 55px; border-radius: 50%; background: #128C7E; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(18, 140, 126, 0.35); transition: transform 0.3s ease, background 0.3s ease; pointer-events: auto; }
+        .fab-trigger { width: 55px; height: 55px; border-radius: 50%; background: #128C7E; color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 25px rgba(18, 140, 126, 0.35); transition: transform 0.3s ease, background 0.3s ease; }
         .fab-trigger:hover { transform: scale(1.05); background: #0D665B; }
-        .fab-trigger svg { width: 28px; height: 28px; fill: currentColor; transition: transform 0.3s ease; stroke: none; }
+        .fab-trigger svg { width: 28px; height: 28px; fill: currentColor; transition: transform 0.3s ease; }
         .fab-trigger.active svg { transform: rotate(15deg) scale(0.9); }
 
         /* ── MODAL STYLING ── */
@@ -681,9 +681,6 @@
             .work-moves-line.secondary { font-size: 1.55rem; }
 
             .strip-btn-solid { width: 100%; padding: 1rem 1.25rem; text-align: center; }
-
-            .fab-container { right: 1rem; bottom: max(1rem, env(safe-area-inset-bottom)); }
-            .fab-trigger { width: 52px; height: 52px; }
 
             .modal-content { width: calc(100% - 1rem); height: calc(100svh - 1rem); border-radius: 10px; }
             .modal-close { top: 0.75rem; right: 0.75rem; }
