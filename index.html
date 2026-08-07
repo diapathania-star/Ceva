@@ -152,9 +152,9 @@
         .about-content-side { flex: 1; display: flex; align-items: center; padding: 6rem 5rem 10rem 2rem; background: var(--dark-bg); z-index: 2; }
         .about-text-content { max-width: 550px; }
         .about-eyebrow { color: var(--orange); font-family: var(--sans); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 1rem; }
-        .about-heading { font-size: clamp(2.5rem, 4vw, 4rem); color: #FFFFFF; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; font-family: 'EB Garamond', Georgia, serif; }
+        .about-heading { font-size: clamp(1.8rem, 3vw, 3rem); color: #FFFFFF; line-height: 1.1; margin-bottom: 1.5rem; font-weight: 400; font-family: 'EB Garamond', Georgia, serif; white-space: nowrap; }
         .about-divider { width: 40px; height: 2px; background-color: var(--orange); margin-bottom: 2rem; }
-        .about-p { font-family: var(--sans); font-size: 1.1rem; font-weight: 300; color: #D5D1CB; margin-bottom: 1.2rem; line-height: 1.6; }
+        .about-p { font-family: var(--sans); font-size: 1.05rem; font-weight: 300; color: #D5D1CB; margin-bottom: 1.2rem; line-height: 1.6; }
         .about-divider-thin { width: 100%; height: 1px; background-color: rgba(255, 255, 255, 0.1); margin: 2rem 0; }
         .about-link { font-family: var(--sans); font-size: 0.8rem; font-weight: 600; color: var(--orange); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; transition: opacity 0.3s; display: inline-flex; align-items: center; }
         .about-link:hover { opacity: 0.8; }
@@ -278,6 +278,7 @@
             .about-image-side { height: 60vh; width: 100%; flex: none; }
             .about-image-overlay { background: linear-gradient(to bottom, rgba(18, 17, 16, 0) 60%, var(--dark-bg) 100%); }
             .about-content-side { padding: 4rem 2rem 8rem 2rem; }
+            .about-heading { font-size: clamp(1.8rem, 7vw, 2.35rem); white-space: nowrap; }
             .voices-header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 3rem; }
             .testimonials-grid { grid-template-columns: 1fr; gap: 4rem; }
             .testimonial-featured { padding-right: 0; }
@@ -359,7 +360,7 @@
                         </div>
                         <div class="dest-grid">
                             <div class="dest-item animate-on-scroll">
-                                <h3 class="dest-title"><strong>Impactful communication</strong></h3>
+                                <h3 class="dest-title"><strong>Impactful Communication</strong></h3>
                                 <p class="dest-text">Be yourself and speak your mind without hesitation no matter who's on the other side.</p>
                             </div>
                             <div class="dest-item animate-on-scroll">
@@ -462,7 +463,7 @@
                             <div class="testimonial-small">
                                 <p class="small-text">"Deepti's greatest strength is her ability to shift your perspective. Instead of letting you react emotionally, she guides you to analyze complex situations objectively using data and principles."</p>
                                 <div class="voice-meta">
-                                    <img src="Vaithy.webp" alt="Vaithy Narayanan" class="voice-avatar" loading="lazy" onerror="this.style.display='none'">
+                                    <img src="Vaithy.jpeg" alt="Vaithy Narayanan" class="voice-avatar" loading="lazy" onerror="this.style.display='none'">
                                     <div class="meta-text">
                                         <span class="voice-name">Vaithy Narayanan</span>
                                         <span class="voice-role">Senior Staff Software Engineer, Outreach</span>
