@@ -301,8 +301,9 @@
             .trust-details { margin: 1rem 0; gap: 1rem; display: grid; grid-template-columns: 1fr 1fr; align-items: start;}
             .modal-body { flex: 1; height: auto; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
-.site-header-inner { padding: 1rem 1.5rem; }
-            .nav-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 48px; height: 48px; border: none; background: transparent; cursor: pointer; z-index: 120; }
+.site-header-inner { padding: 0.5rem 1.25rem; }
+            .site-logo img { height: 52px; }
+            .nav-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer; z-index: 120; }
             .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--slate); transition: all 0.3s ease; }
             .site-header.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
             .site-header.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
@@ -320,7 +321,7 @@
 <header class="site-header">
     <div class="site-header-inner">
         <a href="index.html" class="site-logo">
-            <img src="Logo Favicon.png" alt="Ceva Logo" onerror="this.style.display='none'">
+            <img src="Logo Favicon.webp" alt="Ceva Logo" onerror="this.style.display='none'">
         </a>
         <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
             <span></span><span></span><span></span>
