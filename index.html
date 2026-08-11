@@ -165,9 +165,9 @@
         .voices-title { font-family: var(--sans); font-size: 1.1rem; color: var(--orange); letter-spacing: 0.15em; text-transform: uppercase; font-weight: 500; margin: 0; }
         .voices-link { font-family: var(--sans); font-size: 0.8rem; color: var(--orange); text-decoration: none; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; transition: opacity 0.3s; }
         .voices-link:hover { opacity: 0.7; }
-        .testimonials-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: start;}
-        .testimonial-featured { position: relative; padding-right: 2rem;}
-        .quote-mark { font-family: Georgia, serif; font-size: 5rem; color: #F4E8DC; line-height: 1; position: absolute; top: -2rem; left: -2.5rem; z-index: 0; user-select: none;}
+        .testimonials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;}
+        .testimonial-featured { position: relative; padding-right: 2rem; padding-left: 2.5rem;}
+        .quote-mark { font-family: Georgia, serif; font-size: 5rem; color: #F4E8DC; line-height: 1; position: absolute; top: -2rem; left: -0.5rem; z-index: 0; user-select: none;}
         .featured-text { font-family: 'EB Garamond', Georgia, serif; font-size: clamp(1.4rem, 2vw, 1.7rem); font-style: italic; line-height: 1.45; color: var(--slate); margin-bottom: 2rem; position: relative; z-index: 1;}
         .testimonial-stack { display: flex; flex-direction: column; gap: 2.5rem; border-left: 1px solid rgba(58, 58, 56, 0.15); padding-left: 3rem;}
         .testimonial-small { display: flex; flex-direction: column; gap: 1rem;}
@@ -281,7 +281,7 @@
             .about-heading { font-size: clamp(1.8rem, 7vw, 2.35rem); white-space: nowrap; }
             .voices-header { flex-direction: column; align-items: flex-start; gap: 1rem; margin-bottom: 3rem; }
             .testimonials-grid { grid-template-columns: 1fr; gap: 4rem; }
-            .testimonial-featured { padding-right: 0; }
+            .testimonial-featured { padding-right: 0; padding-left: 0; }
             .quote-mark { left: -1rem; top: -1.5rem; }
             .testimonial-stack { border-left: none; padding-left: 0; border-top: 1px solid rgba(58, 58, 56, 0.15); padding-top: 4rem; }
             #contact { padding: 4rem 0; }
@@ -302,7 +302,7 @@
             .trust-details { margin: 1rem 0; gap: 1rem; display: grid; grid-template-columns: 1fr 1fr; align-items: start;}
             .modal-body { flex: 1; height: auto; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
-.site-header-inner { padding: 0.5rem 1.25rem; }
+            .site-header-inner { padding: 0.5rem 1.25rem; }
             .site-logo img { height: 52px; }
             .nav-toggle { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 44px; height: 44px; border: none; background: transparent; cursor: pointer; z-index: 120; }
             .nav-toggle span { display: block; width: 24px; height: 2px; background: var(--slate); transition: all 0.3s ease; }
