@@ -297,9 +297,13 @@
             /* Modal Mobile Updates */
             .modal-content { height: 90vh; width: 95%; flex-direction: column; overflow: hidden; }
             .modal-grid { display: flex; flex-direction: column; height: 100%; }
-            .modal-trust-panel { padding: 1.5rem; flex-shrink: 0;  border-right: none;}
-            .trust-header h3 { font-size: 2rem; margin-bottom: 0.5rem;}
-            .trust-details { margin: 1rem 0; gap: 1rem; display: grid; grid-template-columns: 1fr 1fr; align-items: start;}
+            .modal-trust-panel { padding: 1.2rem; flex-shrink: 0; border-right: none;}
+            .trust-header h3 { font-size: 1.5rem; margin-bottom: 0.2rem;}
+            .trust-header p { font-size: 0.85rem; }
+            .trust-details { margin: 0.8rem 0; gap: 0.8rem; display: grid; grid-template-columns: 1fr 1fr; align-items: start;}
+            .trust-label { font-size: 0.65rem; margin-bottom: 0.2rem; }
+            .trust-value { font-size: 0.85rem; }
+            .trust-footer { display: none; } /* Hidden to save space for Calendly */
             .modal-body { flex: 1; height: auto; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 
             .site-header-inner { padding: 0.5rem 1.25rem; }
@@ -525,7 +529,7 @@
     <!-- FAB -->
     <div class="fab-container">
         <div class="fab-menu" id="fab-menu">
-            <a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank" class="fab-item">
+            <a href="https://wa.me/9990304343" target="_blank" class="fab-item">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                 <span>Ask a question</span>
             </a>
@@ -551,7 +555,7 @@
             <div class="modal-grid">
                 <div class="modal-trust-panel">
                     <div class="trust-header">
-                        <h3 id="modal-title">Let's map out <br>your path.</h3>
+                        <h3 id="modal-title">Let's map out your path.</h3>
                         <p>Choose a time that suits your schedule on the right.</p>
                     </div>
                     <div class="trust-details">
